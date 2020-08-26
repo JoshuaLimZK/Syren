@@ -53,7 +53,42 @@
                     <view key="view" contentMode="scaleToFill" id="bWg-UC-pjf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmj-Rb-WMa">
+                                <rect key="frame" x="0.0" y="108" width="414" height="651"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAE-Qi-cWd">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YJ" translatesAutoresizingMaskIntoConstraints="NO" id="cZN-ai-QOe">
+                                                <rect key="frame" x="87" y="29" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="5C4-ra-9cw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aAE-Qi-cWd" firstAttribute="bottom" secondItem="wdr-xe-dYx" secondAttribute="bottom" id="5ge-bJ-mAD"/>
+                                    <constraint firstItem="aAE-Qi-cWd" firstAttribute="leading" secondItem="wdr-xe-dYx" secondAttribute="leading" id="CxP-JT-Jin"/>
+                                    <constraint firstItem="aAE-Qi-cWd" firstAttribute="width" secondItem="n7T-ek-3nD" secondAttribute="width" id="QKC-ZO-ozY"/>
+                                    <constraint firstItem="aAE-Qi-cWd" firstAttribute="trailing" secondItem="wdr-xe-dYx" secondAttribute="trailing" id="VcD-JQ-f1M"/>
+                                    <constraint firstItem="aAE-Qi-cWd" firstAttribute="top" secondItem="wdr-xe-dYx" secondAttribute="top" id="v5h-PK-gj3"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="wdr-xe-dYx"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="n7T-ek-3nD"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pmj-Rb-WMa" firstAttribute="top" secondItem="SnW-k9-EwP" secondAttribute="top" id="BzR-gW-Jl2"/>
+                            <constraint firstItem="pmj-Rb-WMa" firstAttribute="leading" secondItem="SnW-k9-EwP" secondAttribute="leading" id="lgi-jk-0zz"/>
+                            <constraint firstItem="pmj-Rb-WMa" firstAttribute="trailing" secondItem="SnW-k9-EwP" secondAttribute="trailing" id="rtb-0t-h8S"/>
+                            <constraint firstItem="pmj-Rb-WMa" firstAttribute="bottom" secondItem="SnW-k9-EwP" secondAttribute="bottom" id="yjH-mm-PVc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SnW-k9-EwP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="mDQ-25-NZI">
@@ -176,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="2476.811594202899" y="-206.25"/>
         </scene>
-        <!--Diasters-->
+        <!--Disasters-->
         <scene sceneID="CKO-NG-DZX">
             <objects>
                 <tableViewController wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="INL-tB-kvf" customClass="DisasterTableViewController" customModule="Syren" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,7 +219,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search For Disasters" showsCancelButton="YES" id="IiT-Im-yih">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search For Countries" id="IiT-Im-yih">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -225,8 +260,9 @@
                             <outlet property="delegate" destination="INL-tB-kvf" id="UwY-wH-d3Y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Diasters" id="V6N-Zu-1kG"/>
+                    <navigationItem key="navigationItem" title="Disasters" id="V6N-Zu-1kG"/>
                     <connections>
+                        <outlet property="searchBar" destination="IiT-Im-yih" id="znA-OI-vUt"/>
                         <segue destination="sR6-0P-S7G" kind="show" identifier="closerLook" id="AtL-II-QgJ"/>
                     </connections>
                 </tableViewController>
@@ -253,21 +289,35 @@
             </objects>
             <point key="canvasLocation" x="2476.811594202899" y="440.625"/>
         </scene>
-        <!--Diasaster Info View Controller-->
+        <!--Disaster Info View Controller-->
         <scene sceneID="qIe-AF-kQP">
             <objects>
-                <viewController id="sR6-0P-S7G" customClass="DiasasterInfoViewController" customModule="Syren" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sR6-0P-S7G" customClass="DisasterInfoViewController" customModule="Syren" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="utK-9i-jqA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qeu-xF-d8w">
+                                <rect key="frame" x="20" y="108" width="374" height="651"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="M12-gK-myy"/>
                     </view>
                     <navigationItem key="navigationItem" id="J7r-zr-adh"/>
+                    <connections>
+                        <outlet property="textView" destination="Qeu-xF-d8w" id="ZFS-x5-PJE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIi-By-pDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288" y="-206"/>
+            <point key="canvasLocation" x="4286.9565217391309" y="-206.25"/>
         </scene>
         <!--Learn-->
         <scene sceneID="s92-Mm-2Te">
@@ -290,6 +340,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="YJ" width="110" height="110"/>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

@@ -8,12 +8,16 @@
 
 import UIKit
 
-class DiasasterInfoViewController: UIViewController {
+class DisasterInfoViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    var listOfContacts = ["123"]
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
         // Do any additional setup after loading the view.
+        textView.text = "Emergency Contacts: \nPolice: \(listOfContacts[0])\nFire service: \(321)"
+        
     }
     
 
