@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		16591AA1938654708ADEC48E /* Pods_Syren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6574660A0E615F41649F602 /* Pods_Syren.framework */; };
-		8A5616F924F49F1800D9B388 /* DummyDisasterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5616F824F49F1800D9B388 /* DummyDisasterData.swift */; };
+		8ABBD0E124FCA1AC00B60D73 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBD0E024FCA1AC00B60D73 /* Data.swift */; };
 		8ADCEE5424F36AF000E92018 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADCEE5324F36AF000E92018 /* GoogleService-Info.plist */; };
 		8AE2E44124EE33B0003F97E3 /* DisasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2E44024EE33B0003F97E3 /* DisasterTableViewController.swift */; };
 		8AE2E44524EE3CDC003F97E3 /* LearnTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2E44424EE3CDC003F97E3 /* LearnTableViewController.swift */; };
 		8AE2E44924EE3EA0003F97E3 /* DisasterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2E44824EE3EA0003F97E3 /* DisasterInfoViewController.swift */; };
+		8AF6E84224F76F1600E53DBD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF6E84124F76F1600E53DBD /* WebViewController.swift */; };
 		8AFB0F2224EB5D8E00BA900D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFB0F2124EB5D8E00BA900D /* AppDelegate.swift */; };
 		8AFB0F2424EB5D8E00BA900D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFB0F2324EB5D8E00BA900D /* SceneDelegate.swift */; };
 		8AFB0F2624EB5D8E00BA900D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFB0F2524EB5D8E00BA900D /* ViewController.swift */; };
@@ -25,11 +26,12 @@
 /* Begin PBXFileReference section */
 		220A454B3CDC42C66D8D7D42 /* Pods-Syren.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syren.debug.xcconfig"; path = "Target Support Files/Pods-Syren/Pods-Syren.debug.xcconfig"; sourceTree = "<group>"; };
 		648B02FD67D429650DDD8B6E /* Pods-Syren.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syren.release.xcconfig"; path = "Target Support Files/Pods-Syren/Pods-Syren.release.xcconfig"; sourceTree = "<group>"; };
-		8A5616F824F49F1800D9B388 /* DummyDisasterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDisasterData.swift; sourceTree = "<group>"; };
+		8ABBD0E024FCA1AC00B60D73 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8ADCEE5324F36AF000E92018 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AE2E44024EE33B0003F97E3 /* DisasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisasterTableViewController.swift; sourceTree = "<group>"; };
 		8AE2E44424EE3CDC003F97E3 /* LearnTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTableViewController.swift; sourceTree = "<group>"; };
 		8AE2E44824EE3EA0003F97E3 /* DisasterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisasterInfoViewController.swift; sourceTree = "<group>"; };
+		8AF6E84124F76F1600E53DBD /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8AFB0F1E24EB5D8E00BA900D /* Syren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AFB0F2124EB5D8E00BA900D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AFB0F2324EB5D8E00BA900D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 				8AFB0F2124EB5D8E00BA900D /* AppDelegate.swift */,
 				8AFB0F2324EB5D8E00BA900D /* SceneDelegate.swift */,
 				8AFB0F2724EB5D8E00BA900D /* Main.storyboard */,
-				8A5616F824F49F1800D9B388 /* DummyDisasterData.swift */,
+				8AF6E84124F76F1600E53DBD /* WebViewController.swift */,
 				8AE2E44824EE3EA0003F97E3 /* DisasterInfoViewController.swift */,
 				8AFB0F2524EB5D8E00BA900D /* ViewController.swift */,
 				8AE2E44024EE33B0003F97E3 /* DisasterTableViewController.swift */,
@@ -88,6 +90,7 @@
 				8AFB0F2C24EB5D9500BA900D /* LaunchScreen.storyboard */,
 				8ADCEE5324F36AF000E92018 /* GoogleService-Info.plist */,
 				8AFB0F2F24EB5D9500BA900D /* Info.plist */,
+				8ABBD0E024FCA1AC00B60D73 /* Data.swift */,
 			);
 			path = Syren;
 			sourceTree = "<group>";
@@ -226,12 +229,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE2E44124EE33B0003F97E3 /* DisasterTableViewController.swift in Sources */,
+				8AF6E84224F76F1600E53DBD /* WebViewController.swift in Sources */,
 				8AFB0F2624EB5D8E00BA900D /* ViewController.swift in Sources */,
 				8AE2E44524EE3CDC003F97E3 /* LearnTableViewController.swift in Sources */,
 				8AFB0F2224EB5D8E00BA900D /* AppDelegate.swift in Sources */,
 				8AE2E44924EE3EA0003F97E3 /* DisasterInfoViewController.swift in Sources */,
-				8A5616F924F49F1800D9B388 /* DummyDisasterData.swift in Sources */,
 				8AFB0F2424EB5D8E00BA900D /* SceneDelegate.swift in Sources */,
+				8ABBD0E124FCA1AC00B60D73 /* Data.swift in Sources */,
 				8AFB0F3624EB63C500BA900D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

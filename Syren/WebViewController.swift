@@ -1,24 +1,21 @@
 //
-//  DiasasterInfoViewController.swift
+//  WebViewController.swift
 //  Syren
 //
-//  Created by Joshua Lim on 20/8/20.
+//  Created by Joshua Lim on 27/8/20.
 //  Copyright © 2020 Joshua Lim. All rights reserved.
 //
 
 import UIKit
+import WebKit
+class WebViewController: UIViewController, WKUIDelegate {
 
-class DisasterInfoViewController: UIViewController {
-
-    @IBOutlet weak var textView: UITextView!
     let data = Data()
-    var currentCountry = 0
+    @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
-        // Do any additional setup after loading the view.
-        textView.text = "Emergency Contacts: \nPolice: \(data.countryPoliceNo[currentCountry])\nFire service: \(data.countryFireNo[currentCountry])\nAmbulance:\(data.countryAmbulanceNo[currentCountry])"
-        
+        super.viewDidLoad()
+        textView.text = "Emergency Contacts: \nPolice: \(data.countryPoliceNo)\nFire service: \(data.countryFireNo)\nAmbulance: \(data.countryAmbulanceNo)"
     }
     
 

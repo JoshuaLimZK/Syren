@@ -1,3 +1,4 @@
+// Team B S204, Syren, Joshua Lim, Irman Zafyree, Ng Ying Xuan
 //
 //  AppDelegate.swift
 //  Syren
