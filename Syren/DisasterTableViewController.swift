@@ -12,9 +12,12 @@ class DisasterTableViewController: UITableViewController, UISearchBarDelegate {
 
     let data = Data()
     
+    
     var countrySelected = 0
+    var originalCountryNumber = 0
     @IBOutlet weak var searchBar: UISearchBar!
     var filteredData: [String]!
+    var filteredRegion: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,7 @@ class DisasterTableViewController: UITableViewController, UISearchBarDelegate {
     
         searchBar.delegate = self
         filteredData = data.countries
+        filteredRegion = data.region
     }
 
     // MARK: - Table view data source
@@ -49,13 +53,29 @@ class DisasterTableViewController: UITableViewController, UISearchBarDelegate {
         // Configure the cell...
         
         cell.textLabel?.text = filteredData[indexPath.row]
-
+        for i in 0...data.region.count - 1{
+            if data.countries[i] == filteredData[indexPath.row]{
+                cell.detailTextLabel?.text = data.region[i]
+            }
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         countrySelected = indexPath.row
         performSegue(withIdentifier: "closerLook", sender: nil)
+        
+        for i in 0...data.countries.count - 1{
+            if data.countries[i] == filteredData[indexPath.row]{
+                print("original array number \(i)")
+                originalCountryNumber = i
+            }
+        }
+        
+        UserDefaults.standard.set(filteredData[indexPath.row], forKey: "selectedCountry")
+        
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -66,6 +86,7 @@ class DisasterTableViewController: UITableViewController, UISearchBarDelegate {
         // item should NOT be included
         filteredData = searchText.isEmpty ? data.countries : data.countries.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it
+            
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
         
@@ -138,9 +159,10 @@ class DisasterTableViewController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "closerLook" {
-            let diasasterInfoViewController = segue.destination as! DisasterInfoViewController
-            diasasterInfoViewController.self.title = filteredData[countrySelected]
-            diasasterInfoViewController.currentCountry = countrySelected
+            let disasterInfoViewController = segue.destination as! DisasterInfoViewController
+            disasterInfoViewController.self.title = filteredData[countrySelected]
+            disasterInfoViewController.currentCountry = countrySelected
+            disasterInfoViewController.originalCountryNo = originalCountryNumber
         }
         
         // Get the new view controller using segue.destination.

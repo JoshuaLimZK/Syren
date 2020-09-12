@@ -13,14 +13,16 @@ class DisasterInfoViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     let data = Data()
     var currentCountry = 0
+    var originalCountryNo = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()        
         // Do any additional setup after loading the view.
-        textView.text = "Emergency Contacts: \nPolice: \(data.countryPoliceNo[currentCountry])\nFire service: \(data.countryFireNo[currentCountry])\nAmbulance:\(data.countryAmbulanceNo[currentCountry])"
         
-    }
+        print("original country number: \(currentCountry)")
+        textView.text = "Emergency Contacts: \nPolice: \(data.countryPoliceNo[currentCountry])\nFire service:\(data.countryFireNo[currentCountry])\nAmbulance:\(data.countryAmbulanceNo[currentCountry]) \n\n\(data.facts[currentCountry])"
     
+    }
 
     /*
     // MARK: - Navigation

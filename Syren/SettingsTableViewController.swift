@@ -1,17 +1,17 @@
 //
-//  LearnTableViewController.swift
+//  SettingsTableViewController.swift
 //  Syren
 //
-//  Created by Joshua Lim on 20/8/20.
+//  Created by Joshua Lim on 11/9/20.
 //  Copyright © 2020 Joshua Lim. All rights reserved.
 //
 
 import UIKit
+import Foundation
 
-class LearnTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController {
 
-    let lessonData = LessonList()
-    var selectedLessonNo = 1
+    let data = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,31 +27,28 @@ class LearnTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return lessonData.lessonNames.count
+        
+        return 1
+    
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "learnCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
+        let selectedCountries = data.countries.joined(separator: ",")
+        cell.textLabel?.text = selectedCountries
+        
         // Configure the cell...
-
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = "Lesson \(indexPath.row + 1): \(lessonData.lessonNames[indexPath.row])"
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        selectedLessonNo = indexPath.row + 1
-        performSegue(withIdentifier: "web", sender: nil)
-    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -88,20 +85,14 @@ class LearnTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-    
-        if segue.identifier == "web" {
-            let lessonNameViewController = segue.destination as! LessonNameViewController
-            lessonNameViewController.lessonNo = selectedLessonNo
-        }
-        
     }
-    
+    */
 
 }

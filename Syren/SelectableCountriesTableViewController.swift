@@ -1,17 +1,18 @@
 //
-//  LearnTableViewController.swift
+//  SelectableCountriesTableViewController.swift
 //  Syren
 //
-//  Created by Joshua Lim on 20/8/20.
+//  Created by Joshua Lim on 11/9/20.
 //  Copyright © 2020 Joshua Lim. All rights reserved.
 //
 
 import UIKit
 
-class LearnTableViewController: UITableViewController {
-
-    let lessonData = LessonList()
-    var selectedLessonNo = 1
+class SelectableCountriesTableViewController: UITableViewController {
+    
+    var trueFalseArray: [Bool]?
+    let data = Data()
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,36 +23,54 @@ class LearnTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let alert = UIAlertController(title: "Work-in-progress", message: "You have stumbled upon a work in progress feature! This feature has only been halfway implemented and is not working fully yet.", preferredStyle: .alert)
 
-    // MARK: - Table view data source
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        self.present(alert, animated: true)
     }
 
+    // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return lessonData.lessonNames.count
+        return data.countries.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "learnCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         // Configure the cell...
 
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = "Lesson \(indexPath.row + 1): \(lessonData.lessonNames[indexPath.row])"
+        cell.textLabel?.text = data.countries[indexPath.row]
+        cell.textLabel?.textColor = .white
+        
+        let mySwitch = UISwitch()
+        mySwitch.addTarget(self, action: #selector(didChangeSwitch(_:)), for: .valueChanged)
+
+        if defaults.array(forKey: "countrySelect")![indexPath.row] as! Bool == true {
+            mySwitch.isOn = true
+        } else {
+            mySwitch.isOn = false
+        }
+
+        cell.accessoryView = mySwitch
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc func didChangeSwitch(_ sender : UISwitch) {
+        if sender.isOn {
+            print("userTurnedOn")
+        } else {
+            print("userTurnedOff")
+        }
         
-        selectedLessonNo = indexPath.row + 1
-        performSegue(withIdentifier: "web", sender: nil)
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -88,20 +107,14 @@ class LearnTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-    
-        if segue.identifier == "web" {
-            let lessonNameViewController = segue.destination as! LessonNameViewController
-            lessonNameViewController.lessonNo = selectedLessonNo
-        }
-        
     }
-    
+    */
 
 }

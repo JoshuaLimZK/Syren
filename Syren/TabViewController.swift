@@ -1,21 +1,26 @@
 //
-//  WebViewController.swift
+//  TabViewController.swift
 //  Syren
 //
-//  Created by Joshua Lim on 27/8/20.
+//  Created by Joshua Lim on 11/9/20.
 //  Copyright © 2020 Joshua Lim. All rights reserved.
 //
 
 import UIKit
-import WebKit
-class WebViewController: UIViewController, WKUIDelegate {
 
-    let data = Data()
-    @IBOutlet weak var textView: UITextView!
+class TabViewController: UITabBarController {
+
+    var start = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.text = "Emergency Contacts: \nPolice: \(data.countryPoliceNo)\nFire service: \(data.countryFireNo)\nAmbulance: \(data.countryAmbulanceNo)"
+        print(start)
+
+        if start {
+            self.selectedIndex = 1
+        }
+        
+        // Do any additional setup after loading the view.
     }
     
 
